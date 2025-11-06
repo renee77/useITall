@@ -1,0 +1,387 @@
+header {
+    width: 100%;
+    height: 15vh;
+    background-color: var(--primary-green);
+    color: var(--dark-green);
+
+    .header-container {
+      max-width: var(--content-max);
+      margin: 0 auto;
+      width: 100%;
+      padding: 20px var(--content-pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        position: relative;
+
+
+        div#hamburgerMenu {
+            display: none;
+        }
+
+        #navLinks {
+            display: flex;
+            align-items: center;
+            
+            .dropdownHeader{
+                position: relative;
+                display: inline-block;
+
+                .dropdown-menuHeader{
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background-color: var(--primary-green);
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    z-index: 1000;
+
+                    a{
+                        display: block;
+                        padding: 12px 16px;
+                        border-bottom: 1px solid rgba(47, 82, 51, 0.1);
+
+                        &:last-child {
+                            border-bottom: none;
+                        }
+
+                        &:hover {
+                            background-color: rgba(47, 82, 51, 0.1);
+                        }
+                    }
+                }
+
+                &:hover .dropdown-menuHeader {
+                    display: block;
+                }
+            }
+
+        }
+
+        a {
+            color: var(--dark-green);
+            padding: 14px 16px;
+            display: block;
+
+            &:hover {
+                background-color: rgba(47, 82, 51, 0.05);
+                text-decoration: underline;
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            img {
+                width: 100px;
+                height: auto;
+
+            }
+        }
+    }
+
+    div#login {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    @media (max-width: 900px) {
+        nav {
+            justify-content: space-between;
+            width: 100%;
+
+            div#hamburgerMenu {
+                position: absolute;
+                top: 50%;
+                right: 20px;
+                transform: translateY(-50%);
+                width: 35px;
+                height: 25px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                cursor: pointer;
+                z-index: 10;
+
+                span {
+                    display: block;
+                    height: 4px;
+                    width: 100%;
+                    background-color: var(--dark-green);
+                    border-radius: 2px;
+                    transition: all 0.3s ease;
+                }
+            }
+
+            #navLinks {
+                display: none;
+                position: absolute;
+                top: 100%;
+                /* gelijk aan de header padding */
+                right: -20px;
+                flex-direction: column;
+                background-color: var(--primary-green);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+
+                &.active {
+                    display: flex;
+                }
+
+                .dropdownHeader{
+                    width: 100%;
+
+                    .dropdown-toggle {
+                        width: 100%;
+                    }
+
+                    .dropdown-menuHeader {
+                        position: static;
+                        display: none;
+                        box-shadow: none;
+                        background-color: rgba(47, 82, 51, 0.05);
+                        padding-left: 20px;
+
+                        a {
+                            padding: 10px 16px;
+                        }
+                    }
+
+                    &:hover .dropdown-menuHeader {
+                        display: none;
+                    }
+
+                    &.active .dropdown-menuHeader {
+                        display: block;
+                    }
+                }
+
+                a {
+                    padding: 12px 16px;
+                    width: 100%;
+                    text-align: left;
+                    border-bottom: 1px solid rgba(47, 82, 51, 0.1);
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+
+        div#login {
+            display: none;
+        }
+    }
+}
+
+footer {
+    background-color: var(--dark-green);
+    color: var(--primary-green);
+    font-size: 14px;
+    width: 100%;
+
+
+    /* container waarin ik de onderdelen dmv grid kan plaatsen */
+
+    div.footer-main {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        max-width: var(--content-max);
+        margin: 0 auto;
+        padding: 20px var(--content-pad);
+        align-content: center;
+
+
+        /* grid colommen */
+
+        div.footer-col {
+            background-color: transparent;
+            padding: 10px;
+
+            h3,
+            address,
+            p,
+            form {
+                color: var(--primary-green);
+                margin-bottom: 12px;
+            }
+
+
+
+            li {
+                margin-bottom: 8px;
+            }
+
+            a {
+                color: var(--primary-green);
+                padding: 4px 0;
+                display: inline-block;
+                border-radius: 3px;
+                transition: background-color 0.2s ease;
+
+                &:hover {
+                    background-color: rgba(213, 236, 212, 0.15);
+                    text-decoration: underline;
+                }
+
+                &:focus {
+                    outline: none;
+                }
+
+                &#subscribeLink {
+                    text-decoration: underline;
+                }
+            }
+
+            input[type="email"] {
+                padding: 6px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                border: none;
+                margin-right: 6px;
+                font-size: 13px;
+            }
+
+            &.footer-sitemap ul {
+                columns: 2;
+                padding: 0;
+            }
+
+        }
+    }
+
+    div.footer-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top: 1px solid var(--primary-green);
+        padding: 10px 0;
+        font-size: 12px;
+        background-color: var(--dark-green);
+        color: var(--primary-green);
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+        }
+
+        span {
+            color: var(--primary-green);
+        }
+    }
+
+
+    @media (max-width: 900px) {
+        div.footer-main {
+            grid-template-columns: 1fr;
+            gap: 16px;
+            padding: 24px 8vw;
+        }
+    }
+
+}
+
+/* classe om items onzichtbaar te maken zoals bijvoorbeeld het inlogscherm */
+.invisible {
+    display: none !important;
+}
+
+/* een laag om de popup extra zichtbaar te maken */
+.popup-overlay {
+    position: fixed;
+    /* Blijf bovenop de rest van de pagina */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Donkere transparante achtergrond */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    /* Zorgt dat het bovenaan ligt */
+}
+
+.popup-content {
+    position: relative;
+    /* nodig voor positionering van de sluitknop */
+    background: var(--light-brown);
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+    padding: 1rem 1.5rem 1.5rem;
+    /* ruimte rondom de inhoud, behalve boven */
+    box-sizing: border-box;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* centreert de inhoud, inclusief de knop */
+        gap: 0.2rem;
+        /*kleine ruimte tussen velden */
+    }
+
+    img{
+        width: 80%;
+        padding-top: 10px;
+    }
+
+    .dark-button {
+        width: 30%;
+        align-self: center;
+        /* zorgt dat de knop in het midden blijft */
+    }
+
+}
+
+/* position: relative; bij .popup-content maakt het de referentie voor de absolute positionering van .close-btn .
+    .close-btn krijgt position: absolute; top: 8px; right: 10px;
+    zodat hij altijd in de hoek van het pop-upvenster blijft, niet binnen de tekststroom*/
+.close-btn {
+    min-width: 24px;
+    min-height: 24px;
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+
+    &:hover {
+        color: darkred;
+    }
+
+    &:focus-visible {
+        outline: 3px solid #0066cc;
+        /* goed contrasterend met je achtergrond */
+        outline-offset: 4px;
+        /* creëert ruimte rond de knop */
+        box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.4);
+        /* extra zachte gloed voor zichtbaarheid */
+    }
+
+    /* fallback voor browsers zonder :focus-visible */
+    &:focus {
+        outline: 3px solid #0066cc;
+        outline-offset: 4px;
+    }
+}
+
+#newsletterPopup .popup-content img {
+    width: 80%;
+}
+

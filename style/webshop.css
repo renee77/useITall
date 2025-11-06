@@ -1,0 +1,379 @@
+main#webshop {
+    /* ### WEBSHOP BAR ### */
+    .navbar{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; 
+        width: 100%;
+        padding: 0.5rem 1rem;
+        margin: 1rem 0;
+        background-color: var(--dark-green);
+        font-weight: bold; 
+        color: var(--light-brown);
+
+        img{
+            width: 50px;
+        }
+    }
+
+    /* ### WEBSHOP BREADCRUMB MENU ### */
+    .shopmenu {
+        list-style: none;            
+        display: flex;               
+        align-items: center;       
+        padding: 0;
+        margin: 0;
+    }
+
+    .shopmenu li {
+        display: flex;             
+        align-items: center;
+    }
+
+    /* Insert “>” before every LI except the first */
+    .shopmenu li + li::before {
+        content: "›";                
+        margin: 0 0.5em;             
+        color: #888;              
+        font-size: 0.9em;
+    }
+
+    /* Link styling */
+    .shopmenu a {
+        color: var(--primary-green);
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25em;
+        text-decoration: none;
+        padding: 0.5rem 0.5rem;
+        transition: color .2s ease;
+    }
+
+    .shopmenu a:hover, .shopmenu a:focus {           
+        transition: background-color 0.2s ease;
+        color: var(--dark-green);
+        background-color: #f2f2f2;
+        text-decoration: underline;
+    }
+
+    /* ### SEARCH FORM ###*/
+    /* 1. Center form horizontally; 100px top/bottom margin; max width for responsiveness */
+    .search-form {
+        display: flex;
+        width: 80%;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 0;
+    }
+
+    /* 2. Input expands to fill available space; rounded left corners */
+    .search-input {
+        flex: 1;
+        padding: 0.75rem 1rem;
+        border: 1px solid #ccc;
+        border-right: none;
+        border-radius: 4px 0 0 4px;
+        font-size: 1rem;
+        outline: none;
+    }
+
+    /* 3. Button styling; rounded right corners */
+    .search-button {
+        padding: 0.75rem 1.25rem;
+        border: 1px solid #ccc;
+        background-color: var(--dark-green);
+        color: #fff;
+        border-radius: 0 4px 4px 0;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    /* 4. Hover/focus states for accessibility */
+        .search-button:hover, .search-button:focus {
+        background-color: var(--light-brown);
+        color: var(--dark-green);
+        outline: none;
+    }
+
+    /* ### DOUBLE ADBOX ### */
+    /* Container spans full page width and uses flex layout */
+    .adbox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        flex-wrap: wrap;
+        padding: 1rem;
+        box-sizing: border-box;
+        gap: 10px;
+        position: relative;
+    }
+
+    /* ### ADFRAME ### */
+    .aditem {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        background-color: var(--primary-green);
+        border: 1px solid #ccc;
+        height: 250px;
+        width: 500px;
+        gap: 10px;
+        position: relative;
+        font-weight: bold;
+
+        /* AD CONTENT */
+        .adcontent{
+            width: 100%;
+            height: 90%;
+            border: 1px solid #ccc;
+            display: flex;             
+            justify-content: right;
+            align-items: flex-end;
+            overflow: hidden; 
+
+            &.tomato{
+                background-image: url(/assets/irasutoya/food_tomaat.png);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+            }
+
+            &.halloween{
+                background-image: url(/assets/irasutoya/halloween_background.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: bottom;
+            }
+
+            img {
+                max-width: 30%;  
+                object-fit: contain;    
+                display: block;   
+             }
+        }
+    }
+
+    /* GREEN CATEGORY DIVIDER */
+    .divider {
+        width: 100%;
+        padding: 0.75rem 0;
+        margin: 1rem 0;
+        background-color: var(--dark-green);
+        text-align: center;
+        font-weight: bold; 
+        color: var(--light-brown);
+        box-sizing: border-box;
+    }
+
+    /* ### CATEGORY SECTION ### */
+    .catbox{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        flex-wrap: wrap;
+        padding: 1rem;
+        box-sizing: border-box;
+        gap: 10px;
+        position: relative;
+    }
+
+    /* CATEGORY SUBGROUP */
+     .catitem {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        background-color: var(--primary-green);
+        border: 1px solid #ccc;
+        height: 250px;
+        max-width: 600px;
+        gap: 10px;
+        position: relative;
+     }
+
+     /* CATEGORY SELECTION OF PRODUCTS */
+    .catselection {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 10px;
+        height: 100%;
+        position: relative; 
+    }
+
+    /* MOBILE VIEW */
+    @media (max-width: 899px) {
+        .catitem {
+            max-width: none;
+            width: 100%;
+        }
+    }
+
+     /* CATEGORY ITEM */
+    .catproduct {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0.5rem 1rem;
+        background-color: var(--white);
+        border: 1px solid #ccc;
+        height: 100%;
+        width: 150px;
+        align-items: center;
+
+        img {
+            width: 90%;
+            object-fit: contain;
+            display: block;
+        }
+        &:hover{
+            background-color: var(--primary-green);
+        }
+     }
+
+    .productname {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        padding: 8px 0;
+    }
+
+    /* PRODUCT PAGE FORMATTING */
+    /* Core layout */
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 28px 20px;
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 32px;
+        align-items: start;
+        color: #222;
+        line-height: 1.45;
+    }
+    
+    /* MOBILE VIEW */
+    @media (max-width: 899px) {
+        .container {
+            grid-template-columns: 100%;
+        }
+    }
+
+    /* Gallery */
+    .product-gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .main-image {
+        width: 100%;
+        padding-top: 66%;
+        background-size: cover;
+        background-position: center;
+        border-radius: 8px;
+        border: 1px solid #e6e6e6;
+    }
+
+    /* Details column */
+    .product-details .title {
+        margin: 0 0 8px 0;
+        font-size: 1.75rem;
+        font-weight: 600;
+    }
+
+    .sku {
+        margin: 0 0 14px 0;
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    .price-stock {
+        display: flex;
+        align-items: baseline;
+        gap: 18px;
+        margin-bottom: 14px;
+    }
+
+    .price {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #111;
+    }
+
+    .stock {
+        font-size: 0.95rem;
+        color: #0a7a00;
+
+        &.out-of-stock{
+            color: #b00;
+            }
+        }
+
+    /* Options */
+    .options {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+    }
+
+    .option-label {
+        font-size: 0.9rem;
+        color: #333;
+        margin-right: 6px;
+    }
+
+    .qty {
+        padding: 8px 10px;
+        border-radius: 6px;
+        border: 1px solid #d6d6d6;
+        font-size: 0.95rem;
+        background: #fff;
+    }
+
+    /* Actions and button styles */
+    .actions {
+        display: flex;
+        gap: 12px;
+        margin: 6px 0 18px 0;
+        align-items: center;
+    }
+
+    .btn {
+        padding: 12px 16px;
+        border-radius: 8px;
+        border: 1px solid transparent;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .add-to-cart {
+        background: linear-gradient(180deg, #ff7a00, #ff5a00);
+        color: #fff;
+        border-color: rgba(0, 0, 0, 0.04);
+    }
+
+    .add-to-cart:active {
+        transform: translateY(1px);
+    }
+
+    /* Descriptions and specs */
+    .section-title {
+        margin: 0 0 8px 0;
+        font-size: 1.05rem;
+        font-weight: 600;
+    }
+
+    .description p {
+        margin: 0 0 12px 0;
+        color: #333;
+    }
+}

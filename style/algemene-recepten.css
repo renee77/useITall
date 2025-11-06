@@ -1,0 +1,112 @@
+.mainRecipes {
+  display: grid;
+  grid-template-columns: 6% 25% 3% 62% 6%;
+  grid-template-rows: 25% 75%;
+  min-height: 100vh;
+
+  .headingIntro {
+    grid-column: 2 / 5;
+    grid-row: 1;
+
+    h1 {
+      padding: 25px 0;
+      margin: 0 !important;
+    }
+  }
+
+  h4 {
+    color: var(--dark-green);
+    padding: 15px 0;
+  }
+
+  /*The block where the filters can go at a later point, as well as a search bar*/
+  .filters {
+    background-color: var(--primary-green);
+    grid-column: 2 / 3;
+    padding: 10px;
+  }
+  /*****************************************/
+  /*****************RECIPES*****************/
+  /*****************************************/
+
+  /*Using the created recipes div to flexbox it as a way to have it next to one another*/
+  .recipeOptions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 2rem;   
+    grid-column: 4 / 5;
+  }
+
+  /*Setting the base shapes of the blocks, with a min and max width, so it does not get too big*/
+  .recipeBlock {
+    background-color: var(--light-brown);
+    color: var(--dark-green);
+    padding-bottom: 5px;
+    min-width: 50px;
+    max-width: 250px;
+    transition: transform 0.5s ease;
+  }
+
+  /*Scaling the block up when it is being hovered over (which takes 0.5s thanks to the transition) as well as adding a shadow*/
+  .recipeBlock:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px var(--dark-green);
+  }
+
+  img {
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .recipeBlock__text {
+      padding: 5px;
+  }
+
+  input {
+    margin-bottom: 8px;
+    /*The accent color makes the checked background color dark green */
+    accent-color: var(--dark-green);
+  }
+
+  /*****************************************/
+  /********MEDIA QUERY - PHONE**************/
+  /*****************************************/
+  
+  @media screen and (max-width: 900px) {
+    .mainRecipes {
+      grid-template-rows: 15% 85%;
+
+      /*Changing the font sizes down once more*/
+      h1 {
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+
+      /* RECIPES */
+      /*Changing the recipe section as to fall below one another.*/
+      .recipeOptions {
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 2rem;
+      }
+
+        /*Sizing down the individual recipe blocks slightly*/
+        .recipeBlock {
+          width: 200px;
+
+          img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }

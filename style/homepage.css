@@ -1,0 +1,176 @@
+main#homepage {
+    section#promo {
+        /* 2 koloms waarbij ik alleen de laatste kolom ga gebruiken voor de slogan */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        background-image: url(../assets/organic-turnip-green-gardening-gloves-wooden-tray-wooden-desk.jpg);
+        /* de achtergrond wordt horizontaal gecentreerd en op 53% vanuit de onderkant getoond */
+        background-position: center bottom 45%;
+        background-size: cover;
+        height: 70vh;
+
+        /* in deze div wordt mbv flex de tekst en het logo gecentreed */
+        div.slogan {
+            grid-column: 2;
+            margin: 10px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            /* background-color: rgba(0,0,0,0.3); heb dit geprobeerd om het contrast te verbeteren maar ik vind het niet mooi*/
+
+            img {
+                max-width: 300px;
+                align-self: center;
+            }
+        }
+
+
+    }
+
+    section#all-carousels {
+        display: flex;
+        justify-content: space-around;
+        /* verdeelt de carousels met ruimte ertussen */
+        align-items: stretch;
+        /* zorgt dat alle secties even hoog zijn */
+        flex-wrap: wrap;
+        /* laat ze onder elkaar komen bij kleinere schermen */
+        gap: 2rem;
+        margin: 4rem auto;
+        max-width: var(--content-max);
+        padding: 20px var(--content-pad);
+
+
+
+        section.carousel {
+            width: 30%;
+            /* elk neemt een derde van de rij */
+            min-width: 300px;
+            /* minimale breedte voor responsief gedrag */
+            position: relative;
+            overflow: hidden;
+            background-color: var(--light-brown);
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            &:hover {
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+                transform: translateY(-4px);
+            }
+
+            div.carousel-track {
+                display: flex;
+                transition: transform 0.4s ease-in-out;
+                scroll-behavior: smooth;
+                /* Zorg dat de inhoud binnen de vergrote kaart niet vervormt */
+                transition: transform 0.3s ease;
+
+
+
+                div.carousel-item {
+                    min-width: 100%;
+                    flex: 0 0 100%;
+                    background-color: var(--light-brown);
+                    text-align: center;
+                    padding: 1.5rem;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+
+
+                }
+
+                h3 {
+                    color: var(--dark-green);
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    margin: 0;
+                    line-height: 1.3;
+                }
+
+                img {
+                    width: 100%;
+                    height: 200px;
+                    object-fit: cover;
+                    border-radius: 8px;
+                }
+
+                p {
+                    color: black;
+                    font-size: 0.95rem;
+                    line-height: 1.5;
+                    margin: 0;
+                }
+            }
+        }
+
+        button.carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.95);
+            border: 2px solid var(--primary-green);
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 10;
+            color: var(--dark-green);
+
+            &:hover {
+                background-color: var(--primary-green);
+                transform: translateY(-50%) scale(1.1);
+            }
+        }
+
+        button.carousel-btn.previous {
+            left: 10px;
+        }
+
+        button.carousel-btn.next {
+            right: 10px;
+        }
+
+        section.carousel:hover button.carousel-btn {
+            opacity: 1;
+        }
+
+
+    }
+
+
+}
+
+div#white-space{
+    height: 10vh;
+    background-color: whtie;
+}
+
+h1 {
+    margin-left: 25%;
+
+}
+
+h3 {
+    padding-top: 20px;
+}
+
+
+@media(max-width: 900px) {
+    h2 {
+        font-size: 1rem;
+    }
+
+    div.slogan{
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+}

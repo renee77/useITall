@@ -1,0 +1,377 @@
+/* Basis container */
+main#over-ons .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-inline: 16px;
+}
+
+/* ┌────────────────────────────── BANNER ──────────────────────────────┐
+   │   Banner, banner-inhoud, titel, inleiding en afbeelding            │
+   └────────────────────────────────────────────────────────────────────┘ */
+main#over-ons .banner {
+    padding: 48px 16px 16px;
+}
+
+main#over-ons .banner-inhoud {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr; /* mobiel: 1 kolom */
+    gap: 32px;
+    align-items: start;
+}
+
+/* laat grid-items krimpen binnen het grid */
+main#over-ons .banner-links,
+main#over-ons .banner-rechts {
+    min-width: 0;
+}
+
+/* Titel + tekst */
+main#over-ons .grote-titel {
+    font-size: clamp(1.9rem, 6vw, 3rem); /* fluid h1 */
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 0 0 16px;
+    overflow-wrap: anywhere; /* voorkomt overflow */
+}
+
+main#over-ons .inleiding {
+    color: var(--onyx);
+    margin: 10px 0 24px;
+    overflow-wrap: anywhere;
+}
+
+/* Afbeelding banner */
+main#over-ons .afbeelding {
+    width: clamp(240px, 90vw, 560px); /* schaalt mee met viewport */
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: cover;
+    display: block;
+}
+
+/* Zet de foto boven en centreer op mobiel */
+main#over-ons .banner-rechts {
+    order: -1;
+    display: flex;
+    justify-content: center;
+}
+
+/* ┌────────────────────────────── CIJFERS ─────────────────────────────┐
+   │ Cijfers-blok, cijfers-layout, cijfer-waarde en cijfer-tekst        │
+   └────────────────────────────────────────────────────────────────────┘ */
+ .cijfers-blok {
+    margin-top: 0;
+    padding: 40px 16px;
+    background-color: var(--primary-green);
+}
+
+ .cijfers-layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* mobiel 2 kolommen */
+    gap: 20px 24px;
+    text-align: center;
+}
+
+ .cijfer-waarde {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--dark-green);
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+ .cijfer-tekst {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--dark-green);
+}
+
+/* ┌─────────────────────────────INTRODUCTIE────────────────────────────┐
+   │ Achtergrond, afbeelding, inhoud, puntenlijst en handtekening       │
+   └────────────────────────────────────────────────────────────────────┘ */
+.introductie {
+    padding: 100px 0;
+    position: relative;
+}
+
+.introductie .achtergrond {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.04;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.introductie .introductie-inhoud {
+    display: grid;
+    grid-template-columns: 1fr; /* mobiel 1 kolom */
+    align-items: center;
+    gap: 32px;
+    position: relative; /* boven de achtergrond */
+    z-index: 1;
+}
+
+/* Ronde afbeelding */
+.introductie .introductie-foto {
+    aspect-ratio: 1 / 1;
+    width: min(300px, 80vw);
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .1);
+    margin: 0 auto; /* centreer op mobiel */
+}
+
+.introductie .introductie-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Tekstblok */
+.klein-label {
+    color: var(--dark-green);
+    font-weight: bold;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    font-size: .9rem;
+    margin-bottom: .5rem;
+}
+
+.kop {
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem); /* jouw bestaande fluid h2 */
+    color: var(--dark-green);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.uitleg {
+    color: #555;
+    margin-bottom: 1.5rem;
+    max-width: 90%;
+    margin-inline: auto; /* centreer tekst op mobiel */
+}
+
+.puntenlijst {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+}
+
+.puntenlijst li {
+    color: var(--dark-green);
+    margin-bottom: .4rem;
+    position: relative;
+}
+
+.ondertekening .naam {
+    font-weight: bold;
+    margin: 0;
+    color: #2f5233;
+}
+
+.ondertekening .functie {
+    margin: 0;
+    color: #666;
+    font-size: .9rem;
+}
+
+/* ┌──────────────────────────── DIENSTEN ──────────────────────────────┐
+   │ Diensten, carrousel, kaarten, foto's en icons                      │
+   └────────────────────────────────────────────────────────────────────┘ */
+.diensten {
+    background: var(--primary-green);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.carrousel {
+    overflow: hidden;
+    position: relative;
+}
+
+.kaarten {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr; /* mobiel: 1 kolom */
+    gap: 20px;
+}
+
+.kaart {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: var(--schaduw);
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    position: relative;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.kaart:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+}
+
+.kaart-foto {
+    position: relative;
+    margin: 0;
+    aspect-ratio: 4 / 3;
+    overflow: visible;
+}
+
+.kaart-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(80%);
+    transition: filter .3s ease;
+}
+
+.kaart:hover .kaart-foto img {
+    filter: brightness(100%);
+}
+
+.kaart-icoon {
+    position: absolute;
+    left: 50%;
+    bottom: -40px;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--dark-green);
+    display: grid;
+    place-items: center;
+    outline: 10px solid #fff;
+}
+
+.kaart-icoon img {
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+}
+
+.kaart-inhoud {
+    padding: calc(80px / 2 + 1rem) 1rem 1.5rem;
+}
+
+.kaart-titel {
+    margin: 0 0 .35rem;
+    color: var(--dark-green);
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+.kaart-tekst {
+    margin: 0;
+    color: var(--onyx);
+    font-size: .95rem;
+}
+
+/* ┌───────────────────────── BREAKPOINTS ──────────────────────────────┐
+   │ Breakpoints voor mobiele apparaten, >= 600, 880, 1024              │
+   └────────────────────────────────────────────────────────────────────┘ */
+
+/* >= 600px */
+@media (min-width: 600px) {
+     .cijfers-layout {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* >= 880px */
+@media (min-width: 880px) {
+    /* banner naast elkaar */
+    main#over-ons .banner-inhoud {
+        grid-template-columns: 1fr 0.9fr;
+        gap: 48px;
+        align-items: end;
+    }
+
+    main#over-ons .banner-rechts {
+        order: 0; /* terug onder de tekst */
+        justify-content: end; /* uitlijnen rechts */
+    }
+
+    /* Intro 2 kolommen */
+    .introductie .introductie-inhoud {
+        grid-template-columns: 1fr 1fr;
+        text-align: left;
+    }
+
+    .introductie .introductie-foto {
+        margin-right: 100px;
+        width: auto;
+    }
+
+    .uitleg {
+        margin-inline: 0;
+    }
+
+    /* Kaarten 2 kolommen */
+    .kaarten {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    /* subtiele overlap bij de bannerfoto */
+    main#over-ons .banner-rechts {
+        margin-bottom: -17px;
+    }
+}
+
+@media (max-width: 880px) {
+    main#over-ons .introductie {
+        text-align: center; /* centreren van tekst, titels en knoppen */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* centreren van de rest */
+        justify-content: center;
+    }
+}
+
+
+/* Waren wat problemen met tablets, zijn hiermee opgelost */
+@media (min-width: 880px) and (max-width: 1008px) {
+    main#over-ons .banner-inhoud {
+        grid-template-columns: 1.05fr 0.95fr; /* iets meer ruimte voor tekst */
+        gap: 2rem;
+    }
+
+    main#over-ons .banner-links {
+        max-width: 560px;
+    }
+
+    main#over-ons .afbeelding {
+        max-width: 400px; /* De tekst kwam achter de afbeelding, is hiermee opgelost */
+        width: 100%;
+    }
+
+    main#over-ons .grote-titel {
+        font-size: clamp(2.2rem, 4.6vw, 2.8rem);
+        line-height: 1.12;
+        overflow-wrap: normal;
+        word-break: normal;
+        hyphens: auto; /* mooiere afbreking van de titel */
+        text-wrap: balance; /* mooiere regelverdeling */
+        max-width: 16ch; /* houd regels leesbaarder */
+    }
+}
+
+/* >= 1024px */
+@media (min-width: 1024px) {
+    .kaarten {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
