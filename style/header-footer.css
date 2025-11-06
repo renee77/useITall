@@ -126,7 +126,7 @@ header {
                 display: none;
                 position: absolute;
                 top: 100%;
-                /* gelijk aan de header padding */
+                /* equal to header padding */
                 right: -20px;
                 flex-direction: column;
                 background-color: var(--primary-green);
@@ -191,7 +191,7 @@ footer {
     width: 100%;
 
 
-    /* container waarin ik de onderdelen dmv grid kan plaatsen */
+    /* container to place grid contents */
 
     div.footer-main {
         display: grid;
@@ -203,7 +203,7 @@ footer {
         align-content: center;
 
 
-        /* grid colommen */
+        /* grid colums */
 
         div.footer-col {
             background-color: transparent;
@@ -293,46 +293,46 @@ footer {
 
 }
 
-/* classe om items onzichtbaar te maken zoals bijvoorbeeld het inlogscherm */
+/* class to make elements visible or invisible */
 .invisible {
     display: none !important;
 }
 
-/* een laag om de popup extra zichtbaar te maken */
+/* extra layer for visibility to support the popup */
 .popup-overlay {
     position: fixed;
-    /* Blijf bovenop de rest van de pagina */
+    /* stay on top of page*/
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    /* Donkere transparante achtergrond */
+    /* dark transperent background */
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 999;
-    /* Zorgt dat het bovenaan ligt */
+    /* make sure it always shows above other items */
 }
 
 .popup-content {
     position: relative;
-    /* nodig voor positionering van de sluitknop */
+    /* needed for positioning the close button */
     background: var(--light-brown);
     border-radius: 5px;
     width: 300px;
     text-align: center;
     padding: 1rem 1.5rem 1.5rem;
-    /* ruimte rondom de inhoud, behalve boven */
+    /* space around the content, except at the top */
     box-sizing: border-box;
 
     form {
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* centreert de inhoud, inclusief de knop */
+        /* centring content including button */
         gap: 0.2rem;
-        /*kleine ruimte tussen velden */
+        /*small space between fields */
     }
 
     img{
@@ -343,14 +343,14 @@ footer {
     .dark-button {
         width: 30%;
         align-self: center;
-        /* zorgt dat de knop in het midden blijft */
+        /* keeps button centered*/
     }
 
 }
 
-/* position: relative; bij .popup-content maakt het de referentie voor de absolute positionering van .close-btn .
-    .close-btn krijgt position: absolute; top: 8px; right: 10px;
-    zodat hij altijd in de hoek van het pop-upvenster blijft, niet binnen de tekststroom*/
+/* position: relative; on .popup-content makes it the reference for absolute positioning of .close-btn.
+.close-btn gets position: absolute; top: 8px; right: 10px;
+so it always stays in the corner of the popup window, not within the text flow. */
 .close-btn {
     min-width: 24px;
     min-height: 24px;
@@ -367,14 +367,14 @@ footer {
 
     &:focus-visible {
         outline: 3px solid #0066cc;
-        /* goed contrasterend met je achtergrond */
+        /* contrasting with background */
         outline-offset: 4px;
-        /* creëert ruimte rond de knop */
+        /* creates space around */
         box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.4);
-        /* extra zachte gloed voor zichtbaarheid */
+        /* soft glowfor visability */
     }
 
-    /* fallback voor browsers zonder :focus-visible */
+    /* fallback for browsers whithout :focus-visible */
     &:focus {
         outline: 3px solid #0066cc;
         outline-offset: 4px;

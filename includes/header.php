@@ -52,10 +52,10 @@
             <div id="loginPopup" class="popup-overlay invisible" role="dialog" aria-modal="true"
                 aria-labelledby="login-title" aria-describedby="login-desc">
                 <div class="popup-content">
-                    <!-- het &times; is html voor het sluitteken de x  -->
-                    <!-- Het <span>‑element is van nature niet focusbaar via toetsenbordnavigatie.
-                Door tabindex="0" toe te voegen, maak je het bereikbaar met de Tab‑toets.
-                Dat is nodig omdat dit element dient als interactief element (in dit geval een sluitknop) -->
+                    <!-- the &times; is html for the close-button x  -->
+                    <!-- The span element is not focusable by keyboard navigation by default.
+                      By adding tabindex 0, you make it accessible with the Tab key. 
+                      This is needed because the element serves as an interactive element, in this case a close button. -->
                     <span class="close-btn" aria-label="venster sluiten" role="button" tabindex="0">&times;</span>
                     <h2 id="login-title">Inloggen</h2>
                     <p id="login-desc" class="invisible">Vul hieronder je gegevens in om toegang te krijgen tot je account.

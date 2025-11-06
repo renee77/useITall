@@ -1,40 +1,40 @@
-// Selecteer elke carousel met de klassen .carousel.homepage
+// Select each carousel with the classes .carousel.homepage
 document.querySelectorAll('.carousel.homepage').forEach(carousel => {
-  const track = carousel.querySelector('.carousel-track');   // De container van alle slides
-  const items = carousel.querySelectorAll('.carousel-item'); // Alle individuele slides
-  const prev = carousel.querySelector('.previous');           // Linkerknop ‹
-  const next = carousel.querySelector('.next');               // Rechterknop ›               
+  const track = carousel.querySelector('.carousel-track');   // container of all slides
+  const items = carousel.querySelectorAll('.carousel-item'); // single slides
+  const prev = carousel.querySelector('.previous');           // left button ‹
+  const next = carousel.querySelector('.next');               // right button ›               
 
-  // Indexering
-  let currentIndex = 1;  // Start bij de 'eerste echte' slide (na de kloon)
+  // Indexing
+  let currentIndex = 1;  // Start at the 'first real' slide (after the clone)
   const totalItems = items.length;
 
-  // Maak klonen van eerste en laatste item
+  // make clones from first and last item
   const firstClone = items[0].cloneNode(true);
   const lastClone = items[totalItems - 1].cloneNode(true);
   firstClone.classList.add('clone');
   lastClone.classList.add('clone');
 
-  // Voeg de klonen toe aan het track
+  // add clones to the track
   track.appendChild(firstClone);
   track.insertBefore(lastClone, items[0]);
 
-  // Zet breedte en positie opnieuw
+  // reset width and position 
   const allItems = track.querySelectorAll('.carousel-item');
   track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-   //updateCarousel() bepaalt hoeveel de carrousel verschoven moet worden én of dat met animatie gebeurt.
-   // Wanneer animate = false, wordt de overgang uitgeschakeld
+  //updateCarousel() determines how far the carousel should be moved and whether it happens with animation.
+  //When animate = false, the transition is disabled.
   function updateCarousel(animate = true) {
     track.style.transition = animate ? 'transform 0.4s ease-in-out' : 'none';
-    //Door currentIndex te vermenigvuldigen met 100% weet het script hoe ver de track moet schuiven
-    // De - zorgt ervoor dat de track naar links schuift (waardoor het juiste item in beeld komt)
-    //Hiermee verschuif je het hele track‑element in de X‑richting (horizontaal), Zo lijkt het alsof de slides over elkaar schuiven
+    // By multiplying currentIndex by 100%, the script knows how far the track should move
+    // The minus sign ensures that the track moves to the left (so the correct item appears in view)
+    // This moves the entire track element in the X direction (horizontally), so it looks like the slides are shifting over each other
     track.style.transform = `translateX(-${currentIndex * 100}%)`;
   }
 
   next.addEventListener('click', () => {
-    if (currentIndex >= allItems.length - 1) return; // Beveiliging
+    if (currentIndex >= allItems.length - 1) return; // security messure
     currentIndex++;
     updateCarousel();
   });
@@ -45,9 +45,9 @@ document.querySelectorAll('.carousel.homepage').forEach(carousel => {
     updateCarousel();
   });
 
-  // Zodra de overgang is afgerond, check of we op kloon staan
+  // As soon as the transition is completed, check if we are on a clone
   track.addEventListener('transitionend', () => {
-    // Spring zonder animatie terug naar juiste slide wanneer op kloon komt
+    // Jump back to the correct slide without animation when on a clone
     if (allItems[currentIndex].classList.contains('clone') && currentIndex === allItems.length - 1) {
       currentIndex = 1;
       updateCarousel(false);

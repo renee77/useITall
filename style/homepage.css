@@ -1,15 +1,15 @@
 main#homepage {
     section#promo {
-        /* 2 koloms waarbij ik alleen de laatste kolom ga gebruiken voor de slogan */
+        /* 2 columns where I will only use the last column for the slogan */
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         background-image: url(../assets/organic-turnip-green-gardening-gloves-wooden-tray-wooden-desk.jpg);
-        /* de achtergrond wordt horizontaal gecentreerd en op 53% vanuit de onderkant getoond */
+        /* the background is centered horizontally and shown at 45% from the bottom */
         background-position: center bottom 45%;
         background-size: cover;
         height: 70vh;
 
-        /* in deze div wordt mbv flex de tekst en het logo gecentreed */
+        /* in this div, the text and logo are centered using flex */
         div.slogan {
             grid-column: 2;
             margin: 10px 30px;
@@ -18,7 +18,7 @@ main#homepage {
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* background-color: rgba(0,0,0,0.3); heb dit geprobeerd om het contrast te verbeteren maar ik vind het niet mooi*/
+            /* background-color: rgba(0,0,0,0.3); I tried to improve contrast but I do not like it*/
 
             img {
                 max-width: 300px;
@@ -32,11 +32,11 @@ main#homepage {
     section#all-carousels {
         display: flex;
         justify-content: space-around;
-        /* verdeelt de carousels met ruimte ertussen */
+        /* divide carousels with space between */
         align-items: stretch;
-        /* zorgt dat alle secties even hoog zijn */
+        /* give all sections same height */
         flex-wrap: wrap;
-        /* laat ze onder elkaar komen bij kleinere schermen */
+        /* show them under each other on smaller screens */
         gap: 2rem;
         margin: 4rem auto;
         max-width: var(--content-max);
@@ -46,9 +46,9 @@ main#homepage {
 
         section.carousel {
             width: 30%;
-            /* elk neemt een derde van de rij */
+            /* every element takes 30% width */
             min-width: 300px;
-            /* minimale breedte voor responsief gedrag */
+            /* minimal width for responsive behaviour */
             position: relative;
             overflow: hidden;
             background-color: var(--light-brown);
@@ -65,7 +65,7 @@ main#homepage {
                 display: flex;
                 transition: transform 0.4s ease-in-out;
                 scroll-behavior: smooth;
-                /* Zorg dat de inhoud binnen de vergrote kaart niet vervormt */
+                /* Make sure the content inside the enlarged card does not get distorted */
                 transition: transform 0.3s ease;
 
 

@@ -4,25 +4,24 @@ const CLASSES = {
 };
 
 
-
-// Selecteer het hamburger menu en de navigatie links
+// Select the hamburger menu and the navigation links
 const hamburgerMenu = document.getElementById('hamburgerMenu');
 const navLinks = document.getElementById('navLinks');
 
-// Voeg een click event listener toe aan het hamburger menu
+// Add a click event listener to the hamburger menu
 hamburgerMenu.addEventListener('click', () => {
-    // Toggle de 'active' class op de navLinks
+    // Toggle the 'active' class on the navLinks
     navLinks.classList.toggle('active');
 });
 
-// Voor mobiel: toggle submenu bij click op dropdown
+// For mobile: toggle submenu when clicking on dropdown
 const dropdowns = document.querySelectorAll('.dropdownHeader');
 
 dropdowns.forEach(dropdown => {
     const toggle = dropdown.querySelector('a');
     
     toggle.addEventListener('click', (e) => {
-        // Alleen op mobiel (wanneer hamburger menu zichtbaar is)
+        // Only on mobile (when hamburger menu is visible)
         if (window.innerWidth <= 900) {
             e.preventDefault();
             dropdown.classList.toggle('active');
@@ -30,7 +29,7 @@ dropdowns.forEach(dropdown => {
     });
 });
 
-// zorg dat popups getoond worden bij activatie
+// Make sure popups are displayed on activation
 document.querySelector('.login').addEventListener('click', () => openPopup('loginPopup'));
 const newsletterForm = document.querySelector('#newsletterForm');
 if(newsletterForm){
@@ -41,8 +40,8 @@ if(newsletterForm){
 });
 }
 
-// sluitpopups met muisklik of toetsenbord en zorg dat de trapFocus verwijderd wordt
-// popup sluiten met muisklik
+// Close popups with mouse click or keyboard and make sure the trapFocus is removed
+// Close popup with mouse click
 document.querySelectorAll('.close-btn').forEach(btn => {
   btn.addEventListener('click', event => {
     const popup = event.target.closest('.popup-overlay');
@@ -52,7 +51,7 @@ document.querySelectorAll('.close-btn').forEach(btn => {
     }
   });
 
-  // popup sluiten met toetsenbord
+  // Close popup with keyboard
   btn.addEventListener('keydown', event => {
     if (event.key === 'Enter' || event.key === ' ' || event.key === 'Escape') {
       event.preventDefault();
@@ -69,7 +68,7 @@ document.querySelectorAll('.close-btn').forEach(btn => {
 const loginForm = document.querySelector('#loginPopup form');
 if (loginForm) {
   loginForm.addEventListener('submit', function(event) {
-    event.preventDefault(); // Stop het versturen
+    event.preventDefault(); // Stop sending
     
     const username = document.getElementById('username');
     const password = document.getElementById('password');
@@ -78,11 +77,11 @@ if (loginForm) {
 
     let isValid = true;
     
-    // Valideer gebruikersnaam
+    // Validate username
     if (username.value.trim() === '') {
-      // attribuut voor screenlezers om te laten weten dat er een error is
+      // attribute for screen readers to indicate that there is an error
       username.setAttribute('aria-invalid', 'true');
-      // maak de error zichtbaar
+      // make error visible
       userError.classList.remove(CLASSES.INVISIBLE);
       isValid = false;
     } else {
@@ -90,11 +89,11 @@ if (loginForm) {
       userError.classList.add(CLASSES.INVISIBLE);
     }
     
-    // Valideer wachtwoord
+    // password validation
     if (password.value.trim() === '') {
-      // attribuut voor screenlezers om te laten weten dat er een error is
+      // attribute for screen readers to indicate that there is an error
       password.setAttribute('aria-invalid', 'true');
-      // maak de error zichtbaar
+      // make error visible
       passwordError.classList.remove(CLASSES.INVISIBLE);
       isValid = false;
     } else {
@@ -102,57 +101,56 @@ if (loginForm) {
       passwordError.classList.add(CLASSES.INVISIBLE);
     }
 
-    // Als alles valid is, verstuur dan het form
+    // if all valid send form
     if (isValid) {
       
-      // later komt hier backend verwerking die de velden verder verwerkt met ajax/fetch
+      // later, backend processing will come here that will further process the fields with ajax/fetch
       console.log('Login succesvol!');
 
-      // leeg de velden handmatig omdat preventDefault() is gebruikt
+      // clear the fields because preventDefault() is used
       username.value="";
       password.value="";
 
-      const loginPopup = document.getElementById('loginPopup');  // Pak de hele popup
-      deactivateFocusTrap(loginPopup);                          // Zet focus trap uit
-      loginPopup.classList.add(CLASSES.INVISIBLE);            // Verberg popup
+      const loginPopup = document.getElementById('loginPopup');  // Get popup
+      deactivateFocusTrap(loginPopup);                          // turn focustrap off
+      loginPopup.classList.add(CLASSES.INVISIBLE);            // hide popup
 
-      // laat de succes popup zien
+      //show succes  popup
       openPopup('successPopup');
 
-      // zet class "loginTrue" op login logo
+      // set class "loginTrue" on login logo
       document.getElementById("loginLogo").classList.add("loginTrue");
     }
   });
 
-  // Verwijder foutmeldingen in een form bij typen nadat de gebruiker al een keer op login of submit heeft gedrukt
-  
-  // Selecteer alle input velden binnen het login formulier
+  // Remove error messages in a form when typing after the user has already clicked login or submit
+  // Select all input fields within the login form
   const inputs = loginForm.querySelectorAll('input');
   
   inputs.forEach(input => {
 
-    // Voeg een event listener toe die luistert naar het 'input' event
+    // Add an event listener that listens to the 'input' event
     input.addEventListener('input', function() {
 
-      // 'this' = verwijst naar het input veld waar de gebruiker in typt
-      // Check of het veld niet leeg is
-      // this.value = de huidige tekst in het input veld
+      // 'this' = refers to the input field the user is typing in
+      // Check if the field is not empty
+      // this.value = the current text in the input field
       if (this.value.trim() !== '') {
 
-        // Zet aria-invalid op 'false'
-        // Dit vertelt screenreaders: "dit veld heeft GEEN fout meer"
+        // Set aria-invalid to 'false'
+        // This tells screen readers: "this field NO LONGER has an error"
         this.setAttribute('aria-invalid', 'false');
 
-        // Vind het ID van het bijbehorende foutmelding element
-        // this.getAttribute('aria-describedby') haalt de waarde op van aria-describedby
+        // Find the ID of the associated error message element
+        // this.getAttribute('aria-describedby') retrieves the value of aria-describedby
         const errorId = this.getAttribute('aria-describedby');
 
-        // Zoek het foutmelding element in de HTML
+        // Find error element within the html
         const errorElement = document.getElementById(errorId);
 
-        // Als het foutmelding element bestaat, verberg het dan
+        // if the is an error element, then hide it
         if (errorElement) {
-          // .classList.add(CLASSES.INVISIBLE) = voeg de class 'invisible' toe
+          // .classList.add(CLASSES.INVISIBLE) = add class 'invisible' 
           errorElement.classList.add('invisible');
         }
       }
@@ -162,7 +160,7 @@ if (loginForm) {
   });
 }
 
-// hover over login logo laat zien of er ingelogd is
+// hover over login logo shows if logged in
 const loginLogo = document.getElementById("loginLogo");
 if(loginLogo){
   loginLogo.addEventListener("mouseenter", () =>
@@ -170,7 +168,7 @@ if(loginLogo){
     if(loginLogo.classList.contains("loginTrue")){
       openPopup('successPopup');
 
-      // zorg dat de popup weer verdwijnt na 2 sec
+      // make sure the popup disappears again after 2 sec
       setTimeout(() => {
         const successPopup = document.getElementById('successPopup');
         deactivateFocusTrap(successPopup);
@@ -181,7 +179,7 @@ if(loginLogo){
   });
 }
 
-// contact button footer linkt naar contact.php
+// contact button in the footer links to contact.php
 var contactBtn = document.querySelector('.light-button.contact');
     if (contactBtn) {
         contactBtn.addEventListener('click', function() {
@@ -190,77 +188,77 @@ var contactBtn = document.querySelector('.light-button.contact');
     }
 
 
-//FUNCTIES
+//FUNCTIONS
 
-//zorg dat focus binnen element zoasl popup blijft -> dit draagt bij aan toegankelijkheid
+// ensure focus stays within the element such as a popup -> this contributes to accessibility
 function getFocusableElements(container) {
-  // Alle selectors voor focusbare elementen
+  // All selectors for focusable elements
   const focusableSelectors = [
-    'a[href]',                    // Links met href
-    'button:not([disabled])',     // Buttons die niet disabled zijn
-    'input:not([disabled])',      // Inputs die niet disabled zijn
-    '[tabindex]:not([tabindex="-1"])' // Elementen met tabindex (behalve -1)
+    'a[href]',                    // Links with href
+    'button:not([disabled])',     // Buttons not disabled 
+    'input:not([disabled])',      // Inputs not disabled 
+    '[tabindex]:not([tabindex="-1"])' // Elements with tabindex (except -1)
   ].join(', ');
   
-  // Vind alle elementen en return als array
+  // Find all elements and return as array
   return Array.from(container.querySelectorAll(focusableSelectors));
 }
 
-// Toon popup en focus op de sluitknop
+// show popup and focus on close button
 function openPopup(popupId) {
   const popup = document.getElementById(popupId);
   popup.classList.remove(CLASSES.INVISIBLE);
 
-  // focus op de sluitknop binnen deze popup
+  // focus on close button
   const closeBtn = popup.querySelector('.close-btn');
   if (closeBtn) closeBtn.focus();
 
-  //Activeer focus trap zodat de focus binnen de popup blijft
+  //Activate focus trap, focus will stay within popup 
   activateFocusTrap(popup);
 }
 
 function activateFocusTrap(popup) {
-  // Vind alle focusbare elementen in de popup
+  // Find all focusable elements in the popup
   const focusableElements = getFocusableElements(popup);
   
-  // Als er geen focusbare elementen zijn, stop dan
+  // If there are no focusable elements, stop
   if (focusableElements.length === 0) return;
   
-  // Onthoud het eerste en laatste element
+  // Remember first and last element
   const firstElement = focusableElements[0];
   const lastElement = focusableElements[focusableElements.length - 1];
   
-  // Maak een functie die Tab-navigatie onderschept bij de popups 
-  // oude notatie van deze arrow function is "function trapFocus(e){...}" 
-  // e staat voor event
+  // Make a function that intercepts Tab navigation in popups
+  // old notation of this arrow function is "function trapFocus(e){...}"
+  // e stands for event
   const trapFocus = (e) => {
-    // Alleen reageren op Tab-toets
+    // Only respond to Tab key
     if (e.key !== 'Tab') return;
     
-    // Shift+Tab op EERSTE element
+    // Shift+Tab on first element
     if (e.shiftKey && document.activeElement === firstElement) {
-      e.preventDefault(); // Stop normale Tab gedrag
-      lastElement.focus(); // Spring naar LAATSTE element
+      e.preventDefault(); // Stop normal Tab behaviour
+      lastElement.focus(); // jump to last element
     } 
-    // Tab op LAATSTE element
+    // Tab on LAST element
     else if (!e.shiftKey && document.activeElement === lastElement) {
-      e.preventDefault(); // Stop normale Tab gedrag
-      firstElement.focus(); // Spring naar EERSTE element
+      e.preventDefault(); // Stop normal Tab behaviour
+      firstElement.focus(); // jump to FIRST element
     }
-    // Alle andere situaties: laat Tab normaal werken
+    // All other occurances: let Tab have default behaviour
   };
   
-  // Stap 4: Activeer de trap
+  // Stap 4: activate  trap
   popup.addEventListener('keydown', trapFocus);
   
-  // Stap 5: Onthoud de functie zodat we hem later kunnen verwijderen
+  // Stap 5: Remember the function so we can remove it later
   popup.trapFocusHandler = trapFocus;
 }
 
-// ruim de trapFocus op bij het sluiten van de popups
+// clean up the trapFocus when closing popups
 function deactivateFocusTrap(popup) {
   if (popup.trapFocusHandler) {
     popup.removeEventListener('keydown', popup.trapFocusHandler);
-    popup.trapFocusHandler = null; // Vergeet de referentie
+    popup.trapFocusHandler = null; // forget reference
   }
 }

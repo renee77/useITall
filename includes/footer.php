@@ -42,13 +42,13 @@
     </div>
 
 
-    <!-- popup dat het inschrijven voor de nieuwsbrief is gelukt -->
+    <!-- Popup notifying that signing up for the newsletter was successful﻿ -->
     <div id="newsletterPopup" class="popup-overlay invisible" role="dialog" aria-modal="true" aria-labelledby="succes-title" aria-describedby="succes-desc">
         <div class="popup-content">
-            <!-- het &times; is html voor het sluitteken de x  -->
-            <!-- Het <span>‑element is van nature niet focusbaar via toetsenbordnavigatie.
-            Door tabindex="0" toe te voegen, maak je het bereikbaar met de Tab‑toets.
-            Dat is nodig omdat dit element dient als interactief element (in dit geval een sluitknop) -->
+            <!-- [&times; is the HTML for the close symbol 'x'](pplx://action/translate) --> 
+            <!-- [The <span> element is not focusable by keyboard navigation by default. 
+            By adding tabindex="0", you make it accessible with the Tab key. 
+            This is needed because the element serves as an interactive element (in this case, a close button)-->
             <span class="close-btn" aria-label="venster sluiten" role="button" tabindex="0" >&times;</span> 
             <h3 id="succes-title">Inschrijven nieuwsbrief gelukt!</h3>
             <p id="succes-desc">U ontvang na vandaag wekelijks onze nieuwsbrief!</p>
