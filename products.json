@@ -1,0 +1,58 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "sku": "AARD-001",
+      "title": "Aardappelen",
+      "price": 1.99,
+      "currency": "EUR",
+      "quantity": 1,
+      "unit": "kg",
+      "available": true,
+      "stock_quantity": 150,
+      "summary": "Iets-kruimige biologische aardappelen, als basis voor een klassieke stamppot of om op te bakken in de pan.",
+      "origin": {
+        "producer": "Boer de Vries",
+        "location": "Oosterhout"
+      },
+      "image_url": "/assets/irasutoya/food_aardappel.png",
+      "tags": ["biologisch", "aardappelen", "groenten"]
+    },
+    {
+      "id": 2,
+      "sku": "WORT-001",
+      "title": "Wortels",
+      "price": 3.99,
+      "currency": "EUR",
+      "quantity": 1,
+      "unit": "kg",
+      "stock_quantity": 0,
+      "available": false,
+      "summary": "Heerlijk biologische wortels, lekker om op te knagen. Uitstekend in een roerbak maaltijd!",
+      "origin": {
+        "producer": "Boer Smit",
+        "location": "Den Bosch" 
+      },
+      "image_url": "/assets/irasutoya/food_wortel.png",
+      "tags": ["biologisch", "wortels", "groenten"]
+    },
+    {
+      "id": 3,
+      "sku": "SPIN-001",
+      "title": "Spinazie",
+      "price": 4.99,
+      "currency": "EUR",
+      "quantity": 1,
+      "unit": "kg",
+      "stock_quantity": 75,
+      "available": true,
+      "summary": "Heerlijk biologische spinazie, uitstekend voor salades of in de pasta.",
+      "origin": {
+        "producer": "Boer Janssen",
+        "location": "Tilburg"
+      },
+      "image_url": "/assets/irasutoya/food_spinazie.png",
+      "tags": ["biologisch", "spinazie", "groenten"]
+    }
+  ]
+}

@@ -29,8 +29,8 @@
         
                 <section class="product-details">
                     <h1 id="product-title" class="title">Wortels</h1>
-                    <p class="sku">SKU: <span>12345</span></p>
-        
+                    <p class="sku">SKU: <span>WORT-001</span></p>
+
                     <div class="price-stock">
                         <p class="price">€3.99</p>
                         <p class="stock out-of-stock">Uitverkocht!</p>
