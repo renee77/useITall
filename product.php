@@ -1,5 +1,4 @@
 <?php require './includes/header.php'; ?>
-
     <main id="webshop">
         <section id="webshopnav">
             <div class="navbar">
@@ -22,22 +21,22 @@
         <section id="product">
             <div class="container">
                 <section class="product-gallery" aria-label="Product images">
-                    <div class="main-image" role="img" aria-label="Primary product image"
+                    <div id="productImage" class="main-image" role="img" aria-label="Primary product image"
                         style="background-image:url('/assets/irasutoya/food_aardappel.png')">
                     </div>
                 </section>
         
                 <section class="product-details">
-                    <h1 class="title" id="json-title">EMPTY</h1>
-                    <p class="sku">SKU: <span id="json-SKU">EMPTY</span></p>
+                    <h1 class="title" id="productTitle">ProductNaam</h1>
+                    <p class="sku">SKU: <span id="productSKU">PROD-0000</span></p>
         
                     <div class="price-stock">
-                        <p class="price" id="json-price">€999.99</p>
-                        <p class="stock" id="json-stock">ERROR</p>
+                        <p class="price" id="productPrice">€--.--</p>
+                        <p class="stock out-of-stock" id="productAvailable"></p>
                     </div>
         
                     <div class="options">
-                        <label for="qty" class="option-label">Quantity</label>
+                        <label for="qty" class="option-label">Aantal</label>
                         <input id="qty" class="qty" type="number" min="1" value="1" />
                     </div>
         
@@ -47,17 +46,20 @@
         
                     <div class="description">
                         <h2 class="section-title">Beschrijving</h2>
-                        <p id="json-description">EMPTY</p>
+                        <p id="productDescription">-</p>
                     </div>
         
                     <div class="specs">
                         <h2 class="section-title">Bron</h2>
-                        <p id="json-source">EMPTY</p>
+                        <p id="productOrigin">-</p>
                     </div>
                 </section>
             </div>
         </section>
-        <script src="script/product-fetch.js"></script>
+
+        <?php $productId = $_GET['id'] ?? 1; // default to product 1 ?>
+        <script> const PRODUCT_ID = <?php echo $productId; ?>; </script>
+        <script src="script/getproduct.js" defer></script>
     </main>
 
     <?php require './includes/footer.php'; ?>

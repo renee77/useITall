@@ -1,9 +1,0 @@
-{
-  "sku": 9001,
-  "name": "Aardappelen",
-  "price": 1.99,
-  "description": "Iets-kruimige biologische aardappelen, als basis voor een klassieke stamppot of om op te bakken in de pan.",
-  "source": "Geteeld door Boer de Vries uit Oosterhout.",
-  "image": "images/products/aardappel.jpg",
-  "stock": true
-}

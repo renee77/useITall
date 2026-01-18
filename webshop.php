@@ -38,9 +38,9 @@
             <div class="catbox">
                 <div class="catitem">Groenten
                     <div class="catselection">
-                        <a href="/product-spinazie.php"><div class="catproduct"><img src="/assets/irasutoya/food_spinazie.png" alt="Afbeelding van een bos spinazie"><div class="productname">Spinazie</div></div></a>
-                        <a href="/product-wortel.php"><div class="catproduct"><img src="/assets/irasutoya/food_wortel.png" alt="Afbeelding van een enkele wortel"><div class="productname">Wortels</div></div></a>
-                        <a href="/product-aardappel.php"><div class="catproduct"><img src="/assets/irasutoya/food_aardappel.png" alt="Afbeelding van een aardappel"><div class="productname">Aardappelen</div></div></a>
+                        <a href="/product.php?id=1"><div class="catproduct"><img src="/assets/irasutoya/food_spinazie.png" alt="Afbeelding van een bos spinazie"><div class="productname">Spinazie</div></div></a>
+                        <a href="/product.php?id=2"><div class="catproduct"><img src="/assets/irasutoya/food_wortel.png" alt="Afbeelding van een enkele wortel"><div class="productname">Wortels</div></div></a>
+                        <a href="/product.php?id=3"><div class="catproduct"><img src="/assets/irasutoya/food_aardappel.png" alt="Afbeelding van een aardappel"><div class="productname">Aardappelen</div></div></a>
                     </div>                  
                 </div>
                 <div class="catitem">Maaltijden
