@@ -57,8 +57,13 @@
             </div>
         </section>
 
-        <?php $productId = $_GET['id'] ?? 1; // default to product 1 ?>
+        // Haal ID uit de url en sla op in een variabele
+        <?php $productId = $_GET['id'] ?? 1 ?>
+
+        // Set PRODUCT_ID for JavaScript to use
         <script> const PRODUCT_ID = <?php echo $productId; ?>; </script>
+
+        // Haal data op met JS en vul de pagina
         <script src="script/getproduct.js" defer></script>
     </main>
 
